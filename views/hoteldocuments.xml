@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- List View Definition for Hotel Documents -->
+    <record model="ir.ui.view" id="view_hotel_documents_list">
+        <field name="name">Documents Master List</field>
+        <field name="model">hotel.documents</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Fields displayed in the list view -->
+                <field name="name"/>
+                <field name="description"/>      
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View Definition for Hotel Documents -->
+    <record model="ir.ui.view" id="view_hotel_documents_form">
+        <field name="name">Hotel Document</field>
+        <field name="model">hotel.documents</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!-- Group for document details -->
+                    <group>
+                        <field name="name" style="font-weight: bold;"/>
+                    </group>
+                    <group>
+                        <field name="description" style="font-weight: bold;"/>      
+                    </group>
+                </sheet>    
+            </form>
+        </field>
+    </record>
+
+    <!-- Action Definition for Hotel Documents -->
+    <record model="ir.actions.act_window" id="action_hotel_documents">
+        <field name="name">Hotel Documents</field>
+        <field name="res_model">hotel.documents</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item for Hotel Documents -->
+    <menuitem 
+        name="Hotel Documents" 
+        id="menu_hotel_documents" 
+        parent="menu_hotel_masterlists"
+        action="action_hotel_documents"
+        sequence="4"/>
+</odoo>
